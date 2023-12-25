@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Dota2Quiz</string>
+    <string name="level_question_info_example">第1关, 1/5</string>
+    <string name="level_question_info">第%1$d关, %2$d/%3$d</string>
+    <string name="question_image_description">Question image</string>
+    <string name="question_example">以上图标属于哪个游戏?</string>
+    <string name="option_button_0_example">英雄联盟</string>
+    <string name="option_button_1_example">刀塔</string>
+    <string name="option_button_2_example">魔兽争霸</string>
+    <string name="option_button_3_example">我的世界</string>
+    <string name="submit_button">提交</string>
+</resources>
