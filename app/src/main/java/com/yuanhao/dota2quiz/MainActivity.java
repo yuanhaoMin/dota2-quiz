@@ -1,6 +1,7 @@
 package com.yuanhao.dota2quiz;
 
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -16,6 +17,8 @@ import java.util.stream.Stream;
 public class MainActivity extends AppCompatActivity {
 
     private final Button[] optionButtons = new Button[4];
+    private CountDownTimer countDownTimer;
+    private TextView countDownTimerText;
     private QuizManager quizManager;
 
     @Override
@@ -23,12 +26,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        setupButtons();
+        setupView();
         quizManager = new QuizManager(this);
         updateView();
     }
 
-    private void setupButtons() {
+    private void setupView() {
+        // count down timer
+        countDownTimerText = findViewById(R.id.count_down_timer_text);
+        // option buttons
         optionButtons[0] = findViewById(R.id.option_button_0);
         optionButtons[1] = findViewById(R.id.option_button_1);
         optionButtons[2] = findViewById(R.id.option_button_2);
@@ -40,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         }
+        // other buttons
         final Button revealButton = findViewById(R.id.reveal_button);
         revealButton.setOnClickListener(v -> {
             Stream.of(optionButtons).forEach(button -> {
@@ -49,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
             );
             final int correctOptionId = quizManager.getCurrentQuestion().getCorrectAnswerId();
             optionButtons[correctOptionId].setSelected(true);
+            countDownTimer.cancel();
         });
         final Button continueButton = findViewById(R.id.continue_button);
         continueButton.setOnClickListener(v -> {
@@ -64,6 +72,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void updateView() {
+        // update timer
+        startOrRestartTimer();
         // update option buttons
         Stream.of(optionButtons).forEach(button -> {
             button.setEnabled(true);
@@ -77,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
         final ImageView imageView = findViewById(R.id.question_image);
         final int drawableId = currentQuestion.getImageId() != null //
                 ? getResources().getIdentifier(currentQuestion.getImageId(), "drawable", getPackageName()) //
-                : R.drawable.dota2_icon;
+                : R.drawable.default_puck;
         imageView.setImageResource(drawableId);
         // update question
         final TextView questionText = findViewById(R.id.question_text);
@@ -86,5 +96,20 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 0; i < optionButtons.length; i++) {
             optionButtons[i].setText(options.get(i).getText());
         }
+    }
+
+    private void startOrRestartTimer() {
+        if (countDownTimer != null) {
+            countDownTimer.cancel();
+        }
+        countDownTimer = new CountDownTimer(10000, 1000) {
+            public void onTick(long millisUntilFinished) {
+                countDownTimerText.setText(getString(R.string.count_down_timer, millisUntilFinished / 1000));
+            }
+
+            public void onFinish() {
+                countDownTimerText.setText("时间到!");
+            }
+        }.start();
     }
 }

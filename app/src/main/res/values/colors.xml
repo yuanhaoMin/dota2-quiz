@@ -4,8 +4,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="white_button">#ECEBE2</color>
     <color name="gray">#B1ABA2</color>
-    <color name="green">#7EB293</color>
-    <color name="blue">#5DADEC</color>
-    <color name="orange">#FF8800</color>
-    <color name="red">#D1555D</color>
+    <color name="green">#0F9D58</color>
+    <color name="blue">#4285F4</color>
+    <color name="yellow">#F4B400</color>
+    <color name="red">#DB4437</color>
 </resources>
