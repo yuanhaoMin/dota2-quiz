@@ -6,32 +6,44 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <LinearLayout
-        android:id="@+id/info_layout"
+
+    <TextView
+        android:id="@+id/level_question_info_text"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_standard"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_weight="1"
+        android:text="@string/level_question_info_example"
+        android:textSize="@dimen/text_size_large"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_standard"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/level_question_info_text"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/level_question_info_example"
-            android:textAlignment="textStart"
-            android:textSize="@dimen/text_size_large" />
+        <ImageView
+            android:id="@+id/clock_image"
+            android:layout_width="80dp"
+            android:layout_height="64dp"
+            android:contentDescription="@string/count_down_timer_image_description"
+            android:src="@drawable/count_down_timer" />
 
         <TextView
             android:id="@+id/count_down_timer_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
             android:text="@string/count_down_timer_example"
+            android:textColor="@color/red"
             android:textSize="@dimen/text_size_large" />
-    </LinearLayout>
+
+    </FrameLayout>
 
     <ImageView
         android:id="@+id/question_image"
@@ -46,20 +58,18 @@
         app:layout_constraintBottom_toTopOf="@+id/question_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/info_layout"
-        app:srcCompat="@drawable/default_puck" />
+        app:layout_constraintTop_toBottomOf="@id/level_question_info_text"
+        app:srcCompat="@drawable/default_dota" />
 
-    <!-- Text View for the question -->
     <TextView
         android:id="@+id/question_text"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_standard"
-        android:layout_marginTop="@dimen/margin_standard"
-        android:layout_marginEnd="@dimen/margin_standard"
+        android:layout_margin="@dimen/margin_standard"
         android:text="@string/question_example"
         android:textAlignment="center"
         android:textSize="@dimen/text_size_large"
+        app:layout_constraintBottom_toTopOf="@id/options_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/question_image" />
@@ -75,16 +85,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <!-- Option Button 0 -->
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/option_button_0"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/option_button_background"
             android:text="@string/option_button_0_example"
+            android:textColor="@drawable/option_button_text_color"
             android:textSize="@dimen/text_size_standard" />
 
-        <!-- Option Button 1 -->
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/option_button_1"
             android:layout_width="match_parent"
@@ -92,9 +101,9 @@
             android:layout_marginTop="@dimen/margin_option_button"
             android:background="@drawable/option_button_background"
             android:text="@string/option_button_1_example"
+            android:textColor="@drawable/option_button_text_color"
             android:textSize="@dimen/text_size_standard" />
 
-        <!-- Option Button 2 -->
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/option_button_2"
             android:layout_width="match_parent"
@@ -102,9 +111,9 @@
             android:layout_marginTop="@dimen/margin_option_button"
             android:background="@drawable/option_button_background"
             android:text="@string/option_button_2_example"
+            android:textColor="@drawable/option_button_text_color"
             android:textSize="@dimen/text_size_standard" />
 
-        <!-- Option Button 3 -->
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/option_button_3"
             android:layout_width="match_parent"
@@ -112,10 +121,11 @@
             android:layout_marginTop="@dimen/margin_option_button"
             android:background="@drawable/option_button_background"
             android:text="@string/option_button_3_example"
+            android:textColor="@drawable/option_button_text_color"
             android:textSize="@dimen/text_size_standard" />
+
     </LinearLayout>
 
-    <!-- Reveal Button -->
     <Button
         android:id="@+id/reveal_button"
         android:layout_width="@dimen/button_width_standard"
@@ -127,7 +137,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <!-- Continue Button -->
     <Button
         android:id="@+id/continue_button"
         android:layout_width="@dimen/button_width_standard"
@@ -139,7 +148,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <!-- Reset Button -->
     <Button
         android:id="@+id/reset_button"
         android:layout_width="@dimen/button_width_standard"
