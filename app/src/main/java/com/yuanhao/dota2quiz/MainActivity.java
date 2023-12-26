@@ -1,29 +1,22 @@
 package com.yuanhao.dota2quiz;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.yuanhao.dota2quiz.model.Level;
 import com.yuanhao.dota2quiz.model.Option;
 import com.yuanhao.dota2quiz.model.Question;
 
-import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Stream;
 
 public class MainActivity extends AppCompatActivity {
-    private final Button[] optionButtons = new Button[4];
 
-    private List<Level> levels;
-    private Iterator<Level> levelIterator;
-    private Iterator<Question> questionIterator;
-    private Level currentLevel;
-    private Question currentQuestion;
+    private final Button[] optionButtons = new Button[4];
+    private QuizManager quizManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +24,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         setupButtons();
-        initializeQuiz();
+        quizManager = new QuizManager(this);
+        updateView();
     }
 
     private void setupButtons() {
@@ -49,25 +43,23 @@ public class MainActivity extends AppCompatActivity {
         final Button revealButton = findViewById(R.id.reveal_button);
         revealButton.setOnClickListener(v -> {
             Stream.of(optionButtons).forEach(button -> {
-                button.setEnabled(false);
-                button.setSelected(false);
-            });
-            optionButtons[currentQuestion.getCorrectAnswerId()].setSelected(true);
+                        button.setEnabled(false);
+                        button.setSelected(false);
+                    }
+            );
+            final int correctOptionId = quizManager.getCurrentQuestion().getCorrectAnswerId();
+            optionButtons[correctOptionId].setSelected(true);
         });
         final Button continueButton = findViewById(R.id.continue_button);
-        continueButton.setOnClickListener(v -> moveToNextQuestion());
+        continueButton.setOnClickListener(v -> {
+            quizManager.moveToNextQuestion();
+            updateView();
+        });
         final Button resetButton = findViewById(R.id.reset_button);
-        resetButton.setOnClickListener(v -> resetLevel());
-    }
-
-    private void initializeQuiz() {
-        final LoadQuizLogic loadQuizLogic = new LoadQuizLogic(this);
-        try {
-            levels = loadQuizLogic.loadLevelsFromXML(R.xml.quiz_bank);
-            resetLevel();
-        } catch (Exception e) {
-            Log.e("MainActivity", "Error initializing quiz", e);
-        }
+        resetButton.setOnClickListener(v -> {
+            quizManager.resetLevel();
+            updateView();
+        });
     }
 
 
@@ -79,12 +71,9 @@ public class MainActivity extends AppCompatActivity {
         });
         // update info
         final TextView levelQuestionInfoText = findViewById(R.id.level_question_info_text);
-        levelQuestionInfoText.setText(getString( //
-                R.string.level_question_info, //
-                levels.indexOf(currentLevel) + 1, //
-                currentLevel.getQuestions().indexOf(currentQuestion) + 1, //
-                currentLevel.getQuestions().size()));
+        levelQuestionInfoText.setText(quizManager.getLevelQuestionInfo());
         // update image
+        final Question currentQuestion = quizManager.getCurrentQuestion();
         final ImageView imageView = findViewById(R.id.question_image);
         final int drawableId = currentQuestion.getImageId() != null //
                 ? getResources().getIdentifier(currentQuestion.getImageId(), "drawable", getPackageName()) //
@@ -96,30 +85,6 @@ public class MainActivity extends AppCompatActivity {
         final List<Option> options = currentQuestion.getOptions();
         for (int i = 0; i < optionButtons.length; i++) {
             optionButtons[i].setText(options.get(i).getText());
-        }
-    }
-
-    private void resetLevel() {
-        levelIterator = levels.iterator();
-        moveToNextLevel();
-    }
-
-    private void moveToNextLevel() {
-        if (!levelIterator.hasNext()) {
-            //TODO Add completion logic here
-            levelIterator = levels.iterator();
-        }
-        currentLevel = levelIterator.next();
-        questionIterator = currentLevel.getQuestions().iterator();
-        moveToNextQuestion();
-    }
-
-    private void moveToNextQuestion() {
-        if (questionIterator.hasNext()) {
-            currentQuestion = questionIterator.next();
-            updateView();
-        } else {
-            moveToNextLevel();
         }
     }
 }
