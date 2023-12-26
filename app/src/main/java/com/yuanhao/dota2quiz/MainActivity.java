@@ -1,14 +1,12 @@
 package com.yuanhao.dota2quiz;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.yuanhao.dota2quiz.model.Level;
 import com.yuanhao.dota2quiz.model.Option;
@@ -16,18 +14,16 @@ import com.yuanhao.dota2quiz.model.Question;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class MainActivity extends AppCompatActivity {
     private final Button[] optionButtons = new Button[4];
-    private int selectedOptionIndex = -1;
 
     private List<Level> levels;
     private Iterator<Level> levelIterator;
     private Iterator<Question> questionIterator;
     private Level currentLevel;
     private Question currentQuestion;
-
-    private int score;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,82 +39,69 @@ public class MainActivity extends AppCompatActivity {
         optionButtons[1] = findViewById(R.id.option_button_1);
         optionButtons[2] = findViewById(R.id.option_button_2);
         optionButtons[3] = findViewById(R.id.option_button_3);
-        for (int i = 0; i < optionButtons.length; i++) {
-            final int index = i;
-            optionButtons[i].setOnClickListener(view -> {
-                selectedOptionIndex = index;
-                for (Button b : optionButtons) {
+        for (Button optionButton : optionButtons) {
+            optionButton.setOnClickListener(view -> {
+                for (final Button b : optionButtons) {
                     b.setSelected(b == view);
                 }
-                updateSubmitButtonState();
             });
         }
-        Button submitButton = findViewById(R.id.submit_button);
-        submitButton.setOnClickListener(v -> updateScoreAndMoveNext());
-    }
-
-    private void updateSubmitButtonState() {
-        Button submitButton = findViewById(R.id.submit_button);
-        if (selectedOptionIndex == -1) {
-            submitButton.setEnabled(false);
-            submitButton.setBackgroundColor(Color.GRAY);
-        } else {
-            submitButton.setEnabled(true);
-            submitButton.setBackgroundColor(Color.parseColor("#7E10E1"));
-        }
+        final Button revealButton = findViewById(R.id.reveal_button);
+        revealButton.setOnClickListener(v -> {
+            Stream.of(optionButtons).forEach(button -> {
+                button.setEnabled(false);
+                button.setSelected(false);
+            });
+            optionButtons[currentQuestion.getCorrectAnswerId()].setSelected(true);
+        });
+        final Button continueButton = findViewById(R.id.continue_button);
+        continueButton.setOnClickListener(v -> moveToNextQuestion());
+        final Button resetButton = findViewById(R.id.reset_button);
+        resetButton.setOnClickListener(v -> resetLevel());
     }
 
     private void initializeQuiz() {
-        LoadQuizLogic loadQuizLogic = new LoadQuizLogic(this);
+        final LoadQuizLogic loadQuizLogic = new LoadQuizLogic(this);
         try {
             levels = loadQuizLogic.loadLevelsFromXML(R.xml.quiz_bank);
-            levelIterator = levels.iterator();
-            moveToNextLevel();
+            resetLevel();
         } catch (Exception e) {
             Log.e("MainActivity", "Error initializing quiz", e);
         }
     }
 
-    private void updateScoreAndMoveNext() {
-        // Update score
-        if (currentQuestion.getCorrectAnswerId() == selectedOptionIndex) {
-            score++;
-            Toast.makeText(this, "正确!", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(this, "错误", Toast.LENGTH_SHORT).show();
-        }
-        // Move next
-        moveToNextQuestion();
-    }
-
 
     private void updateView() {
-        // Reset choice
-        if (selectedOptionIndex >= 0) {
-            optionButtons[selectedOptionIndex].setSelected(false);
-            selectedOptionIndex = -1;
-        }
-        updateSubmitButtonState();
+        // update option buttons
+        Stream.of(optionButtons).forEach(button -> {
+            button.setEnabled(true);
+            button.setSelected(false);
+        });
         // update info
-        TextView levelQuestionInfoText = findViewById(R.id.level_question_info_text);
+        final TextView levelQuestionInfoText = findViewById(R.id.level_question_info_text);
         levelQuestionInfoText.setText(getString( //
                 R.string.level_question_info, //
                 levels.indexOf(currentLevel) + 1, //
                 currentLevel.getQuestions().indexOf(currentQuestion) + 1, //
                 currentLevel.getQuestions().size()));
         // update image
-        ImageView imageView = findViewById(R.id.question_image);
-        int drawableId = currentQuestion.getImageId() != null //
+        final ImageView imageView = findViewById(R.id.question_image);
+        final int drawableId = currentQuestion.getImageId() != null //
                 ? getResources().getIdentifier(currentQuestion.getImageId(), "drawable", getPackageName()) //
                 : R.drawable.dota2_icon;
         imageView.setImageResource(drawableId);
         // update question
-        TextView questionText = findViewById(R.id.question_text);
+        final TextView questionText = findViewById(R.id.question_text);
         questionText.setText(currentQuestion.getQuestionText());
-        List<Option> options = currentQuestion.getOptions();
+        final List<Option> options = currentQuestion.getOptions();
         for (int i = 0; i < optionButtons.length; i++) {
             optionButtons[i].setText(options.get(i).getText());
         }
+    }
+
+    private void resetLevel() {
+        levelIterator = levels.iterator();
+        moveToNextLevel();
     }
 
     private void moveToNextLevel() {

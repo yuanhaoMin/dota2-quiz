@@ -1,17 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:state_selected="true">
+    <!-- Selected state with the first color -->
+    <item android:state_selected="true" android:state_enabled="true">
         <shape android:shape="rectangle">
-            <solid android:color="#FFA500"/>
-            <corners android:radius="16dp"/>
-            <stroke android:width="1dp" android:color="#000000"/> <!-- 边框颜色 -->
+            <solid android:color="@color/orange" />
+            <corners android:radius="16dp" />
         </shape>
     </item>
+
+    <!-- Selected state with the second color -->
+    <item android:state_selected="true" android:state_enabled="false">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/green" />
+            <corners android:radius="16dp" />
+        </shape>
+    </item>
+
+    <!-- Default state -->
     <item>
         <shape android:shape="rectangle">
-            <solid android:color="#FFFFFF"/>
-            <corners android:radius="16dp"/>
-            <stroke android:width="1dp" android:color="#000000"/> <!-- 边框颜色 -->
+            <solid android:color="@color/white_button" />
+            <corners android:radius="16dp" />
         </shape>
     </item>
 </selector>
