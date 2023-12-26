@@ -13,16 +13,64 @@ import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
-public class LoadQuizLogic {
+public class QuizManager {
     private final Context context;
 
-    public LoadQuizLogic(Context context) {
+    private List<Level> levels;
+    private Iterator<Level> levelIterator;
+    private Iterator<Question> questionIterator;
+    private Level currentLevel;
+    private Question currentQuestion;
+
+    public QuizManager(Context context) {
         this.context = context;
+        try {
+            levels = loadLevelsFromXML(R.xml.quiz_bank);
+            resetLevel();
+        } catch (Exception e) {
+            Log.e("MainActivity", "Error initializing quiz", e);
+        }
     }
 
-    public List<Level> loadLevelsFromXML(int xmlResourceId) throws XmlPullParserException, IOException {
+    public Question getCurrentQuestion() {
+        return currentQuestion;
+    }
+
+    public String getLevelQuestionInfo() {
+        return context.getString( //
+                R.string.level_question_info, //
+                levels.indexOf(currentLevel) + 1, //
+                currentLevel.getQuestions().indexOf(currentQuestion) + 1, //
+                currentLevel.getQuestions().size());
+    }
+
+    public void resetLevel() {
+        levelIterator = levels.iterator();
+        moveToNextLevel();
+    }
+
+    public void moveToNextLevel() {
+        if (!levelIterator.hasNext()) {
+            //TODO Add completion logic here
+            levelIterator = levels.iterator();
+        }
+        currentLevel = levelIterator.next();
+        questionIterator = currentLevel.getQuestions().iterator();
+        moveToNextQuestion();
+    }
+
+    public void moveToNextQuestion() {
+        if (questionIterator.hasNext()) {
+            currentQuestion = questionIterator.next();
+        } else {
+            moveToNextLevel();
+        }
+    }
+
+    private List<Level> loadLevelsFromXML(int xmlResourceId) throws XmlPullParserException, IOException {
         XmlResourceParser xrp = context.getResources().getXml(xmlResourceId);
         final ArrayList<Level> levels = new ArrayList<>();
         List<Question> questions = null;
