@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <level>
-        <question>
+    <level id="0">
+        <question id="0">
             <text>Dota2的第一个夜晚在什么时候?</text>
             <options>
                 <option id="0">0分钟</option>
@@ -12,7 +12,7 @@
             <answer optionId="0" />  <!-- Referring to Paris -->
         </question>
 
-        <question>
+        <question id="1">
             <text>Dota2现在有多少个英雄?</text>
             <options>
                 <option id="0">108</option>
@@ -23,8 +23,8 @@
             <answer optionId="2" />  <!-- Referring to Oxygen -->
         </question>
 
-        <question>
-            <img_id>l1_q3</img_id>
+        <question id="2">
+            <img_id>l0_q2</img_id>
             <text>该技能的名称是?</text>
             <options>
                 <option id="0">越界</option>
@@ -33,6 +33,18 @@
                 <option id="3">临别一枪</option>
             </options>
             <answer optionId="2" />  <!-- Referring to Oxygen -->
+        </question>
+
+        <question id="3">
+            <img_id>l0_q3</img_id>
+            <text>该技能的满级眩晕时间为(不含天赋)?</text>
+            <options>
+                <option id="0">1.4</option>
+                <option id="1">1.6</option>
+                <option id="2">1.8</option>
+                <option id="3">2.0</option>
+            </options>
+            <answer optionId="1" />  <!-- Referring to Oxygen -->
         </question>
 
         <!-- More questions... -->

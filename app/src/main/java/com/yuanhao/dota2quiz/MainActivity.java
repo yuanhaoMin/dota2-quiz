@@ -108,7 +108,6 @@ public class MainActivity extends AppCompatActivity {
             }
 
             public void onFinish() {
-                countDownTimerText.setText("时间到!");
             }
         }.start();
     }
