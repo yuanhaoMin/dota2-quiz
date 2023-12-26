@@ -9,7 +9,7 @@
                 <option id="2">5分钟</option>
                 <option id="3">7分钟</option>
             </options>
-            <answer optionId="0"/>  <!-- Referring to Paris -->
+            <answer optionId="0" />  <!-- Referring to Paris -->
         </question>
 
         <question>
@@ -20,7 +20,7 @@
                 <option id="2">124</option>
                 <option id="3">126</option>
             </options>
-            <answer optionId="2"/>  <!-- Referring to Oxygen -->
+            <answer optionId="2" />  <!-- Referring to Oxygen -->
         </question>
 
         <question>
@@ -32,7 +32,7 @@
                 <option id="2">弹无虚发</option>
                 <option id="3">临别一枪</option>
             </options>
-            <answer optionId="2"/>  <!-- Referring to Oxygen -->
+            <answer optionId="2" />  <!-- Referring to Oxygen -->
         </question>
 
         <!-- More questions... -->

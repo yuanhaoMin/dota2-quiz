@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- Selected state with the first color -->
-    <item android:state_selected="true" android:state_enabled="true">
+    <item android:state_enabled="true" android:state_selected="true">
         <shape android:shape="rectangle">
-            <solid android:color="@color/orange" />
+            <solid android:color="@color/yellow" />
             <corners android:radius="16dp" />
         </shape>
     </item>
 
     <!-- Selected state with the second color -->
-    <item android:state_selected="true" android:state_enabled="false">
+    <item android:state_enabled="false" android:state_selected="true">
         <shape android:shape="rectangle">
             <solid android:color="@color/green" />
             <corners android:radius="16dp" />
