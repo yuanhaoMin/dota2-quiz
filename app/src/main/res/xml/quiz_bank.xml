@@ -35,8 +35,11 @@
             <answer optionId="2" />  <!-- Referring to Oxygen -->
         </question>
 
-        <question id="3">
-            <img_id>l0_q3</img_id>
+    </level>
+
+    <level id="1">
+        <question id="0">
+            <img_id>l1_q0</img_id>
             <text>该技能的满级眩晕时间为(不含天赋)?</text>
             <options>
                 <option id="0">1.4</option>
@@ -46,9 +49,6 @@
             </options>
             <answer optionId="1" />  <!-- Referring to Oxygen -->
         </question>
-
-        <!-- More questions... -->
+        
     </level>
-
-    <!-- More levels... -->
 </resources>

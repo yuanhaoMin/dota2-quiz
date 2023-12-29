@@ -13,6 +13,7 @@ import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -29,6 +30,7 @@ public class QuizManager {
         this.context = context;
         try {
             levels = loadLevelsFromXML(R.xml.quiz_bank);
+            levels.forEach(level -> Collections.shuffle(level.getQuestions()));
             resetLevel();
         } catch (Exception e) {
             Log.e("MainActivity", "Error initializing quiz", e);
