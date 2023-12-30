@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <level id="0">
-        <question id="0">
+        <!-- 基础类 -->
+        <question id="00">
+            <img_id>dota</img_id>
             <text>Dota2的第一个夜晚在什么时候?</text>
             <options>
                 <option id="0">0分钟</option>
@@ -9,37 +11,275 @@
                 <option id="2">5分钟</option>
                 <option id="3">7分钟</option>
             </options>
-            <answer optionId="0" />  <!-- Referring to Paris -->
+            <answer optionId="0" />
         </question>
-
-        <question id="1">
+        <question id="01">
+            <img_id>dota</img_id>
             <text>Dota2现在有多少个英雄?</text>
             <options>
                 <option id="0">108</option>
-                <option id="1">116</option>
-                <option id="2">124</option>
-                <option id="3">126</option>
+                <option id="1">124</option>
+                <option id="2">136</option>
+                <option id="3">140</option>
             </options>
-            <answer optionId="2" />  <!-- Referring to Oxygen -->
+            <answer optionId="1" />
+        </question>
+        <question id="02">
+            <img_id>dota</img_id>
+            <text>兵线上可能产生几种单位?</text>
+            <options>
+                <option id="0">2</option>
+                <option id="1">3</option>
+                <option id="2">4</option>
+                <option id="3">5</option>
+            </options>
+            <answer optionId="2" />
+        </question>
+        <question id="03">
+            <img_id>dota</img_id>
+            <text>第一波出兵会产生多少近战和远程小兵?</text>
+            <options>
+                <option id="0">5个近战兵1个远程兵</option>
+                <option id="1">4个近战兵2个远程兵</option>
+                <option id="2">4个近战兵1个远程兵</option>
+                <option id="3">3个近战兵1个远程兵</option>
+            </options>
+            <answer optionId="3" />
+        </question>
+        <question id="04">
+            <img_id>dota</img_id>
+            <text>以下哪个说法正确?</text>
+            <options>
+                <option id="0">Dota2没有草丛</option>
+                <option id="1">Dota2没有转身速率</option>
+                <option id="2">Dota2没有攻击前摇</option>
+                <option id="3">Dota2没有攻击后摇</option>
+            </options>
+            <answer optionId="0" />
         </question>
 
-        <question id="2">
-            <img_id>l0_q2</img_id>
+
+        <!-- 技能名称类 -->
+        <question id="10">
+            <img_id>l0q10</img_id>
             <text>该技能的名称是?</text>
             <options>
-                <option id="0">越界</option>
+                <option id="0">弹无虚发</option>
                 <option id="1">枪林弹雨</option>
-                <option id="2">弹无虚发</option>
-                <option id="3">临别一枪</option>
+                <option id="2">暗杀</option>
+                <option id="3">淘汰之刃</option>
             </options>
-            <answer optionId="2" />  <!-- Referring to Oxygen -->
+            <answer optionId="0" />
+        </question>
+
+        <!-- 装备猜英雄类 -->
+        <question id="20">
+            <img_id>l0q20</img_id>
+            <text>最有可能出以上装备的英雄是?</text>
+            <options>
+                <option id="0">幻影刺客</option>
+                <option id="1">亚巴顿</option>
+                <option id="2">莱恩</option>
+                <option id="3">马格纳斯</option>
+            </options>
+            <answer optionId="0" />
+        </question>
+        <question id="21">
+            <img_id>l0q21</img_id>
+            <text>最有可能出以上装备的英雄是?</text>
+            <options>
+                <option id="0">斧王</option>
+                <option id="1">龙骑士</option>
+                <option id="2">帕克</option>
+                <option id="3">风行者</option>
+            </options>
+            <answer optionId="1" />
+        </question>
+        <question id="22">
+            <img_id>l0q22</img_id>
+            <text>最有可能出以上装备的英雄是?</text>
+            <options>
+                <option id="0">沉默术士</option>
+                <option id="1">主宰</option>
+                <option id="2">军团指挥官</option>
+                <option id="3">斯拉克</option>
+            </options>
+            <answer optionId="2" />
+        </question>
+        <question id="23">
+            <img_id>l0q23</img_id>
+            <text>最有可能出以上装备的英雄是?</text>
+            <options>
+                <option id="0">森海飞霞</option>
+                <option id="1">裂魂人</option>
+                <option id="2">剧毒术士</option>
+                <option id="3">卓尔游侠</option>
+            </options>
+            <answer optionId="3" />
+        </question>
+        <question id="24">
+            <img_id>l0q24</img_id>
+            <text>最有可能出以上装备的英雄是?</text>
+            <options>
+                <option id="0">斯拉克</option>
+                <option id="1">暗夜魔王</option>
+                <option id="2">噬魂鬼</option>
+                <option id="3">屠夫</option>
+            </options>
+            <answer optionId="0" />
+        </question>
+        <question id="25">
+            <img_id>l0q25</img_id>
+            <text>最有可能出以上装备的英雄是?</text>
+            <options>
+                <option id="0">干扰者</option>
+                <option id="1">虚空假面</option>
+                <option id="2">宙斯</option>
+                <option id="3">伐木机</option>
+            </options>
+            <answer optionId="1" />
+        </question>
+        <question id="26">
+            <img_id>l0q26</img_id>
+            <text>最有可能出以上装备的英雄是?</text>
+            <options>
+                <option id="0">斧王</option>
+                <option id="1">不朽尸王</option>
+                <option id="2">力丸</option>
+                <option id="3">凤凰</option>
+            </options>
+            <answer optionId="2" />
+        </question>
+        <question id="27">
+            <img_id>l0q27</img_id>
+            <text>最有可能出以上装备的英雄是?</text>
+            <options>
+                <option id="0">赏金猎人</option>
+                <option id="1">幻影长矛手</option>
+                <option id="2">敌法师</option>
+                <option id="3">帕克</option>
+            </options>
+            <answer optionId="3" />
+        </question>
+
+        <!-- 物品类 -->
+        <question id="30">
+            <img_id>dota</img_id>
+            <text>侦察守卫的售价是?</text>
+            <options>
+                <option id="0">0</option>
+                <option id="1">25</option>
+                <option id="2">50</option>
+                <option id="3">75</option>
+            </options>
+            <answer optionId="0" />
+        </question>
+        <question id="31">
+            <img_id>dota</img_id>
+            <text>几个疗伤莲花可以合成大疗伤莲花?</text>
+            <options>
+                <option id="0">2</option>
+                <option id="1">3</option>
+                <option id="2">4</option>
+                <option id="3">5</option>
+            </options>
+            <answer optionId="1" />
+        </question>
+        <question id="32">
+            <img_id>dota</img_id>
+            <text>小魔棒的最高能量点数为?</text>
+            <options>
+                <option id="0">3</option>
+                <option id="1">5</option>
+                <option id="2">10</option>
+                <option id="3">20</option>
+            </options>
+            <answer optionId="2" />
+        </question>
+        <question id="33">
+            <img_id>dota</img_id>
+            <text>"每14秒抵挡一次指向性技能"是哪个装备的效果?</text>
+            <options>
+                <option id="0">清莲宝珠</option>
+                <option id="1">黑皇杖</option>
+                <option id="2">刃甲</option>
+                <option id="3">林肯法球</option>
+            </options>
+            <answer optionId="3" />
+        </question>
+        <question id="34">
+            <img_id>dota</img_id>
+            <text>以下哪件装备含有暴击效果?</text>
+            <options>
+                <option id="0">水晶剑</option>
+                <option id="1">黯灭</option>
+                <option id="2">蝴蝶</option>
+                <option id="3">深渊之刃</option>
+            </options>
+            <answer optionId="0" />
+        </question>
+        <question id="35">
+            <img_id>dota</img_id>
+            <text>以下哪件装备同时增强状态抗性和移动速度?</text>
+            <options>
+                <option id="0">散慧对剑</option>
+                <option id="1">散夜对剑</option>
+                <option id="2">慧夜对剑</option>
+                <option id="3">分身斧</option>
+            </options>
+            <answer optionId="1" />
+        </question>
+        <question id="36">
+            <img_id>dota</img_id>
+            <text>以下哪件装备提供最高的生命恢复?</text>
+            <options>
+                <option id="0">护腕</option>
+                <option id="1">战鼓</option>
+                <option id="2">恐鳌之心</option>
+                <option id="3">先锋盾</option>
+            </options>
+            <answer optionId="2" />
+        </question>
+        <question id="37">
+            <img_id>dota</img_id>
+            <text>以下哪件装备提供最高的力量加成?</text>
+            <options>
+                <option id="0">魔龙枪</option>
+                <option id="1">散华</option>
+                <option id="2">血精石</option>
+                <option id="3">撒旦之邪力</option>
+            </options>
+            <answer optionId="3" />
+        </question>
+        <question id="38">
+            <img_id>dota</img_id>
+            <text>以下哪件装备提供最高的敏捷加成?</text>
+            <options>
+                <option id="0">蝴蝶</option>
+                <option id="1">夜叉</option>
+                <option id="2">斯嘉蒂之眼</option>
+                <option id="3">雷神之锤</option>
+            </options>
+            <answer optionId="0" />
+        </question>
+        <question id="39">
+            <img_id>dota</img_id>
+            <text>以下哪件装备提供最高的智力加成?</text>
+            <options>
+                <option id="0">法师克星</option>
+                <option id="1">秘奥闪光</option>
+                <option id="2">幻影斧</option>
+                <option id="3">慧光</option>
+            </options>
+            <answer optionId="1" />
         </question>
 
     </level>
 
     <level id="1">
-        <question id="0">
-            <img_id>l1_q0</img_id>
+        <!-- 技能类 -->
+        <question id="00">
+            <img_id>l1q00</img_id>
             <text>该技能的满级眩晕时间为(不含天赋)?</text>
             <options>
                 <option id="0">1.4</option>
@@ -49,6 +289,17 @@
             </options>
             <answer optionId="1" />  <!-- Referring to Oxygen -->
         </question>
-        
+        <!-- 野怪类 -->
+        <question id="10">
+            <img_id>l1q10</img_id>
+            <text>这组也怪的官方名称是?</text>
+            <options>
+                <option id="0">马铃薯和西红柿</option>
+                <option id="1">红熊黄熊</option>
+                <option id="2">熊大熊二</option>
+                <option id="3">熊怪二人组</option>
+            </options>
+            <answer optionId="0" />  <!-- Referring to Oxygen -->
+        </question>
     </level>
 </resources>

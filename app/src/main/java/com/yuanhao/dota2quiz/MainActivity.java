@@ -2,6 +2,7 @@ package com.yuanhao.dota2quiz;
 
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -15,7 +16,7 @@ import java.util.List;
 import java.util.stream.Stream;
 
 public class MainActivity extends AppCompatActivity {
-
+    private final static String TAG = "quizLog";
     private final Button[] optionButtons = new Button[4];
     private CountDownTimer countDownTimer;
     private TextView countDownTimerText;
@@ -87,8 +88,9 @@ public class MainActivity extends AppCompatActivity {
         final ImageView imageView = findViewById(R.id.question_image);
         final int drawableId = currentQuestion.getImageId() != null //
                 ? getResources().getIdentifier(currentQuestion.getImageId(), "drawable", getPackageName()) //
-                : R.drawable.default_puck;
+                : R.drawable.dota;
         imageView.setImageResource(drawableId);
+        Log.i(TAG, String.valueOf(currentQuestion.getImageId()));
         // update question
         final TextView questionText = findViewById(R.id.question_text);
         questionText.setText(currentQuestion.getQuestionText());

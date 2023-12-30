@@ -52,14 +52,14 @@
         android:layout_marginTop="@dimen/margin_standard"
         android:adjustViewBounds="true"
         android:contentDescription="@string/question_image_description"
-        android:maxWidth="144dp"
+        android:maxWidth="196dp"
         android:maxHeight="144dp"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toTopOf="@+id/question_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/level_question_info_text"
-        app:srcCompat="@drawable/default_dota" />
+        app:srcCompat="@drawable/dota" />
 
     <TextView
         android:id="@+id/question_text"
