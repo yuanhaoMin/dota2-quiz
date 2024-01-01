@@ -59,7 +59,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/level_question_info_text"
-        app:srcCompat="@drawable/dota" />
+        app:srcCompat="@drawable/l0q11" />
 
     <TextView
         android:id="@+id/question_text"

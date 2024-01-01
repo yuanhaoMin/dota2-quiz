@@ -48,7 +48,7 @@
         </question>
         <question id="04">
             <img_id>dota</img_id>
-            <text>以下哪个说法正确?</text>
+            <text>哪个说法正确?</text>
             <options>
                 <option id="0">Dota2没有草丛</option>
                 <option id="1">Dota2没有转身速率</option>
@@ -70,6 +70,61 @@
                 <option id="3">淘汰之刃</option>
             </options>
             <answer optionId="0" />
+        </question>
+        <question id="11">
+            <img_id>l0q11</img_id>
+            <text>该技能的名称是?</text>
+            <options>
+                <option id="0">回光返照</option>
+                <option id="1">迷雾缠绕</option>
+                <option id="2">双刃剑</option>
+                <option id="3">淘汰之刃</option>
+            </options>
+            <answer optionId="1" />
+        </question>
+        <question id="12">
+            <img_id>l0q12</img_id>
+            <text>该技能的名称是?</text>
+            <options>
+                <option id="0">酸性喷雾</option>
+                <option id="1">地之束缚</option>
+                <option id="2">不稳定化合物</option>
+                <option id="3">腐烂</option>
+            </options>
+            <answer optionId="2" />
+        </question>
+        <question id="13">
+            <img_id>l0q13</img_id>
+            <text>关于该技能哪一说法正确?</text>
+            <options>
+                <option id="0">幻象完全继承数值</option>
+                <option id="1">始终造成减速效果</option>
+                <option id="2">含有吸血效果</option>
+                <option id="3">根据损毁魔法值造成伤害</option>
+            </options>
+            <answer optionId="3" />
+        </question>
+        <question id="14">
+            <img_id>l0q14</img_id>
+            <text>关于狂战士之吼哪一说法错误?</text>
+            <options>
+                <option id="0">属于指向性技能</option>
+                <option id="1">造成嘲讽效果</option>
+                <option id="2">自身增加护甲</option>
+                <option id="3">技能本身不造成伤害</option>
+            </options>
+            <answer optionId="0" />
+        </question>
+        <question id="15">
+            <img_id>l0q15</img_id>
+            <text>霍乱之源的哪一技能不造成纯粹伤害?</text>
+            <options>
+                <option id="0">魔爪</option>
+                <option id="1">噩梦</option>
+                <option id="2">蚀脑</option>
+                <option id="3">虚弱</option>
+            </options>
+            <answer optionId="1" />
         </question>
 
         <!-- 装备猜英雄类 -->
@@ -209,7 +264,7 @@
         </question>
         <question id="34">
             <img_id>dota</img_id>
-            <text>以下哪件装备含有暴击效果?</text>
+            <text>哪件装备含有暴击效果?</text>
             <options>
                 <option id="0">水晶剑</option>
                 <option id="1">黯灭</option>
@@ -220,7 +275,7 @@
         </question>
         <question id="35">
             <img_id>dota</img_id>
-            <text>以下哪件装备同时增强状态抗性和移动速度?</text>
+            <text>哪件装备同时增强状态抗性和移动速度?</text>
             <options>
                 <option id="0">散慧对剑</option>
                 <option id="1">散夜对剑</option>
@@ -231,7 +286,7 @@
         </question>
         <question id="36">
             <img_id>dota</img_id>
-            <text>以下哪件装备提供最高的生命恢复?</text>
+            <text>哪件装备提供最高的生命恢复?</text>
             <options>
                 <option id="0">护腕</option>
                 <option id="1">战鼓</option>
@@ -242,7 +297,7 @@
         </question>
         <question id="37">
             <img_id>dota</img_id>
-            <text>以下哪件装备提供最高的力量加成?</text>
+            <text>哪件装备提供最高的力量加成?</text>
             <options>
                 <option id="0">魔龙枪</option>
                 <option id="1">散华</option>
@@ -253,7 +308,7 @@
         </question>
         <question id="38">
             <img_id>dota</img_id>
-            <text>以下哪件装备提供最高的敏捷加成?</text>
+            <text>哪件装备提供最高的敏捷加成?</text>
             <options>
                 <option id="0">蝴蝶</option>
                 <option id="1">夜叉</option>
@@ -264,7 +319,7 @@
         </question>
         <question id="39">
             <img_id>dota</img_id>
-            <text>以下哪件装备提供最高的智力加成?</text>
+            <text>哪件装备提供最高的智力加成?</text>
             <options>
                 <option id="0">法师克星</option>
                 <option id="1">秘奥闪光</option>
@@ -273,13 +328,24 @@
             </options>
             <answer optionId="1" />
         </question>
-
     </level>
+
 
     <level id="1">
         <!-- 技能类 -->
         <question id="00">
             <img_id>l1q00</img_id>
+            <text>该技能的名称是?</text>
+            <options>
+                <option id="0">冰霜漩涡</option>
+                <option id="1">星体禁锢</option>
+                <option id="2">奥数天球</option>
+                <option id="3">极寒之触</option>
+            </options>
+            <answer optionId="0" />
+        </question>
+        <question id="01">
+            <img_id>l1q01</img_id>
             <text>该技能的满级眩晕时间为(不含天赋)?</text>
             <options>
                 <option id="0">1.4</option>
@@ -289,6 +355,29 @@
             </options>
             <answer optionId="1" />
         </question>
+        <question id="02">
+            <img_id>l1q02</img_id>
+            <text>该技能的名称是?</text>
+            <options>
+                <option id="0">过载</option>
+                <option id="1">幽魂</option>
+                <option id="2">闪烁</option>
+                <option id="3">普通一拳</option>
+            </options>
+            <answer optionId="2" />
+        </question>
+        <question id="03">
+            <img_id>l1q03</img_id>
+            <text>关于该技能哪一说法错误??</text>
+            <options>
+                <option id="0">由最高加成金钱限制</option>
+                <option id="1">英雄自带技能, 无需技能点</option>
+                <option id="2">激活赏金符也有额外金钱</option>
+                <option id="3">反补也有额外金钱</option>
+            </options>
+            <answer optionId="3" />
+        </question>
+
         <!-- 野怪类 -->
         <question id="10">
             <img_id>l1q10</img_id>
@@ -300,6 +389,41 @@
                 <option id="3">熊怪二人组</option>
             </options>
             <answer optionId="0" />
+        </question>
+
+        <!-- 英雄类 -->
+        <question id="20">
+            <img_id>l1q20</img_id>
+            <text>蝙蝠骑士为什么在每个大版本更新后都胜率暴涨?</text>
+            <options>
+                <option id="0">新的物品伤害往往能受到叠油伤害加成</option>
+                <option id="1">每个大版本更新后都会增强蝙蝠骑士</option>
+                <option id="2">中路越来越容易越塔强杀</option>
+                <option id="3">蝙蝠骑士玩家都是高手</option>
+            </options>
+            <answer optionId="0" />
+        </question>
+        <question id="21">
+            <img_id>l1q21</img_id>
+            <text>关于祸乱之源的哪一说法不正确?</text>
+            <options>
+                <option id="0">人称水桶腰, 三位成长相同</option>
+                <option id="1">属于智力英雄</option>
+                <option id="2">有四个指向性技能</option>
+                <option id="3">有一个技能可以吸取魔法</option>
+            </options>
+            <answer optionId="1" />
+        </question>
+        <question id="22">
+            <img_id>l1q22</img_id>
+            <text>关于天穹守望者的哪一说法不正确?</text>
+            <options>
+                <option id="0">本体和复制体技能形态不同</option>
+                <option id="1">在某一次比赛中秒杀了肉山</option>
+                <option id="2">在天辉和夜魇的技能形态不同</option>
+                <option id="3">复制体无法使用刷新球</option>
+            </options>
+            <answer optionId="2" />
         </question>
     </level>
 </resources>
